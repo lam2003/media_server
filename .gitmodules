@@ -1,0 +1,3 @@
+[submodule "3rdparty/common_library"]
+	path = 3rdparty/common_library
+	url = https://github.com/lam2003/common_library.git
