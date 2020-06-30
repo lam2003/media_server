@@ -1,2 +1,3 @@
 .vscode/
-src/version.h
+build/
+src/common/version.h
