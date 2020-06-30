@@ -8,6 +8,49 @@
 #include <string>
 
 namespace rtsp {
+
+// https://en.wikipedia.org/wiki/RTP_payload_formats
+#define RTP_PT_MAP(XX)                                                         \
+    XX(PCMU, media_server::TrackAudio, 0, 8000, 1, media_server::CodecG711U)   \
+    XX(GSM, media_server::TrackAudio, 3, 8000, 1, media_server::CodecInvalid)  \
+    XX(G723, media_server::TrackAudio, 4, 8000, 1, media_server::CodecInvalid) \
+    XX(DVI4_8000, media_server::TrackAudio, 5, 8000, 1,                        \
+       media_server::CodecInvalid)                                             \
+    XX(DVI4_16000, media_server::TrackAudio, 6, 16000, 1,                      \
+       media_server::CodecInvalid)                                             \
+    XX(LPC, media_server::TrackAudio, 7, 8000, 1, media_server::CodecInvalid)  \
+    XX(PCMA, media_server::TrackAudio, 8, 8000, 1, media_server::CodecG711A)   \
+    XX(G722, media_server::TrackAudio, 9, 8000, 1, media_server::CodecInvalid) \
+    XX(L16_Stereo, media_server::TrackAudio, 10, 44100, 2,                     \
+       media_server::CodecInvalid)                                             \
+    XX(L16_Mono, media_server::TrackAudio, 11, 44100, 1,                       \
+       media_server::CodecInvalid)                                             \
+    XX(QCELP, media_server::TrackAudio, 12, 8000, 1,                           \
+       media_server::CodecInvalid)                                             \
+    XX(CN, media_server::TrackAudio, 13, 8000, 1, media_server::CodecInvalid)  \
+    XX(MPA, media_server::TrackAudio, 14, 90000, 1,                            \
+       media_server::CodecInvalid)                                             \
+    XX(G728, media_server::TrackAudio, 15, 8000, 1,                            \
+       media_server::CodecInvalid)                                             \
+    XX(DVI4_11025, media_server::TrackAudio, 16, 11025, 1,                     \
+       media_server::CodecInvalid)                                             \
+    XX(DVI4_22050, media_server::TrackAudio, 17, 22050, 1,                     \
+       media_server::CodecInvalid)                                             \
+    XX(G729, media_server::TrackAudio, 18, 8000, 1,                            \
+       media_server::CodecInvalid)                                             \
+    XX(CelB, media_server::TrackVideo, 25, 90000, 1,                           \
+       media_server::CodecInvalid)                                             \
+    XX(JPEG, media_server::TrackVideo, 26, 90000, 1,                           \
+       media_server::CodecInvalid)                                             \
+    XX(nv, media_server::TrackVideo, 28, 90000, 1, media_server::odecInvalid)  \
+    XX(H261, media_server::TrackVideo, 31, 90000, 1,                           \
+       media_server::CodecInvalid)                                             \
+    XX(MPV, media_server::TrackVideo, 32, 90000, 1,                            \
+       media_server::CodecInvalid)                                             \
+    XX(MP2T, media_server::TrackVideo, 33, 90000, 1,                           \
+       media_server::CodecInvalid)                                             \
+    XX(H263, media_server::TrackVideo, 34, 90000, 1, media_server::CodecInvalid)
+
 class SDPTrack {
   public:
     typedef std::shared_ptr<SDPTrack> Ptr;

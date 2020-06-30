@@ -57,11 +57,9 @@ std::string SDPTrack::ToString() const
             else {
                 printer << "m=video 0 RTP/AVP" << pt << "\r\n";
             }
-
             if (!b.empty()) {
                 printer << "b=" << b << "\r\n";
             }
-
             get_attr_sdp(attr, printer);
             break;
         }
@@ -70,7 +68,19 @@ std::string SDPTrack::ToString() const
             break;
         }
     }
-
     return printer;
+}
+
+std::string SDPTrack::GetName() const
+{
+    switch (pt) {
+#define SWITCH_CASE(name, type, value, clock_rate, channel, codec_id)          \
+    case value: return #name;
+        RTP_PT_MAP(SWITCH_CASE)
+#undef SWITCH_CASE
+        default: {
+            return "unknown payload type";
+        }
+    }
 }
 }  // namespace rtsp

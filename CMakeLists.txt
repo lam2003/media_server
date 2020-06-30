@@ -11,7 +11,6 @@ set(CMAKE_INSTALL_RPATH_USE_LINK_PATH FALSE)
 set(BUILD_STATIC_LIBS ON)
 set(BUILD_SHARED_LIBS OFF)
 
-    # 加入git版本文件
 find_package(Git)
 execute_process(COMMAND ${GIT_EXECUTABLE} describe --abbrev=6 --dirty --always --tags
     WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
@@ -38,7 +37,7 @@ file(WRITE ${PROJECT_SOURCE_DIR}/src/common/version.h
 )
 
 if(BUILD_MEDIA_SERVER_WITH_DEBUG)
-    message("################################ build with debug ################################")
+    message("####################### build with debug #######################")
     add_definitions(-DMEDIA_SERVER_DEBUG)
     add_compile_options(-g3 -O0)
     add_link_options(-rdynamic)
