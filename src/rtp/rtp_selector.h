@@ -5,7 +5,7 @@
 
 namespace media_server {
 
-class RTPSelector : public std::enable_shared_from_this<RTPSelector> {
+class RTPSelector final: public std::enable_shared_from_this<RTPSelector> {
   public:
     ~RTPSelector();
     RTPSelector();

@@ -51,7 +51,7 @@ namespace rtsp {
        media_server::CodecInvalid)                                             \
     XX(H263, media_server::TrackVideo, 34, 90000, 1, media_server::CodecInvalid)
 
-class SDPTrack {
+class SDPTrack final {
   public:
     typedef std::shared_ptr<SDPTrack> Ptr;
 
